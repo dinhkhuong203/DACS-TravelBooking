@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ưu Đãi - Travel Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="[invalid url, do not cite] rel="stylesheet">
+    <link href="[invalid url, do not cite] rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container d-flex justify-content-between align-items-center py-2">
+            <h1 class="logo">Travel Booking</h1>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="login.html" id="login-link" class="nav-link">Đăng nhập</a>
+                <a href="plan.html" class="nav-link">Lập kế hoạch</a>
+                <a href="booking.html" class="nav-link">Đặt phòng</a>
+                <a href="promotions.html" class="nav-link">Ưu đãi</a>
+                <a href="javascript:void(0);" id="logout-link" class="nav-link d-none" onclick="logout()">Đăng xuất</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="container my-5">
+            <h2 class="text-center mb-4">Ưu Đãi Đặc Biệt</h2>
+            <p>Chúng tôi có nhiều ưu đãi đặc biệt cho bạn:</p>
+            <ul>
+                <li>Ưu đãi 10% cho đặt phòng sớm (đặt trước 30 ngày)</li>
+                <li>Gói nghỉ dưỡng all-inclusive với giá ưu đãi</li>
+                <li>Vé máy bay giá rẻ đến các điểm đến phổ biến</li>
+            </ul>
+            <p>Để tìm hiểu thêm và đặt phòng, vui lòng truy cập <a href="booking.html">trang đặt phòng</a>.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center py-3">
+        <p>© 2025 Travel Booking - Được tạo bởi [Tên bạn]</p>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const token = localStorage.getItem("token");
+            const loginLink = document.getElementById("login-link");
+            const logoutLink = document.getElementById("logout-link");
+            
+            if (token) {
+                loginLink.classList.add("d-none");
+                logoutLink.classList.remove("d-none");
+            } else {
+                loginLink.classList.remove("d-none");
+                logoutLink.classList.add("d-none");
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "index.html";
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
